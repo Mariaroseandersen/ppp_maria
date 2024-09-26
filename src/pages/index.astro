@@ -1,177 +1,246 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Button from '../components/Button.astro';
-import Link from '../components/Link.astro';
-import { Image } from 'astro:assets';
-import musik1 from "../assets/images/musik1.jpg";
-import musik2 from "../assets/images/musik2.jpg";
-import musik3 from "../assets/images/musik3.jpg";
-import musik4 from "../assets/images/musik4.jpg";
-const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
-  return files.map(file => file.default);
+import Header from "../components/Header.astro";
+const images = await Astro.glob("/src/assets/images/galleri/*").then((files) => {
+  return files.map((file) => file.default);
 });
 ---
+
 <MainLayout title="Titel">
-		<section class="grid md:grid-cols-2 border-8 border-black lg:mt-32">		
-			<div class="">
-				<Image src={musik1} alt="Musik som levevej" class="" />
-			</div>
-			<div class="text-4xl p-8 grid content-center bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">					
-				<p class="pb-8">Musik som levevej</p>
-				<p class="mb-8 text-2xl">Et kursus i at blive stinkende rig som musiker - af musiker og multimillionær Jørgen Henning</p>
-				<Link variant="primary" size="medium" href="#tilmelding">Tilmeld dig til kurset!</Link>
-			</div>
-		</section>
+  <!-- HERO SEKTION -->
+  <section id="hero" class="grid md:grid-cols-1 lg:grid-cols-2 relative max-w-screen-xl mx-auto px-8 xl:px-16 lg:pt-24">
+    <!-- På mobil vises dette under billedet -->
+    <div class="order-2 md:order-1 pb-48 lg:pb-20 relative z-10 flex flex-col justify-center">
+      <p class="text-black text-8xl md:text-8xl lg:text-7xl mb-4 animate__animated animate__fadeInLeftBig whitespace-nowrap">Creative Digital Designer</p>
+      <div class="text-black md:text-base animate__animated animate__fadeInLeftBig whitespace-nowrap max-w-md">
+        <p class="text-3xl pb-4 font-medium">Hi, my name is Maria, but feel free to call me Rose.</p>
+        <p class="pt-4 pb-8 text-l">
+          I am currently in my third semester at KEA, which particularly focuses on <br /> digital design, UI, and UX. I am passionate about turning creative ideas <br />into engaging solutions with Figma, Adobe tools, and web technologies.
+        </p>
+      </div>
+      <a href="#competencies" class="animate__animated animate__fadeInLeftBig" style="transition: transform 0.3s ease; display: inline-block; border: 2px solid black; text-align: center; padding: 8px 16px; border-radius: 4px; color: black; max-width: 250px; overflow: hidden; text-overflow: ellipsis;" onmouseover="this.style.transform='scale(1.1)';" onmouseout="this.style.transform='scale(1)';"> EXPLORE MY COMPETENCIES </a>
+    </div>
+    <!-- På mobil vises billedet først -->
+    <div class="order-1 md:order-2 relative overflow-hidden pb-44">
+      <img src="public/mig_kort.jpg" alt="Billede af Maria Rose Andersen" class="object-cover h-[300px] md:h-full w-full lg:w-full animate__animated animate__fadeInRightBig rounded-xl pb-11" />
+    </div>
+  </section>
 
-		<section id="kurset" class="mt-32 grid lg:grid-cols-2 prose mx-auto gap-4">
-			<article  >
-				<h2 class="text-4xl">Kort om kurset</h2>
-				<p>Musik som levevej er de danske musikeres grundkursus i at tjene penge: Kurset gennemgår alt fra at tjene penge på koncerter, musiksalg og merchandise til små svindelnumre du kan lave, når det ser allermørkest ud.</p>
-			</article>
-			<article >
-				<h2 class="text-4xl">Hurtige facts om kurset</h2>
-				<ul>
-					<li>Titel: Musik som levevej</li>
-					<li>Forfatter: Jørn Henning</li>
-					<li>Omfang: Lynkursus - weekendkursus, med diverse kursusmaterialer</li>
-					<li>Udbyder: Musikforbundet</li>
-					<li>Pris: 1200.-</li>
-				</ul>
-			</article>
-		</section>
-		
-		<section class="mt-32 grid lg:grid-cols-3 mx-auto gap-4 items-center">
-			<div><Image src={musik2} format="webp" alt="foto" class="my-class" /></div>
-			<div><Image src={musik3} format="webp" alt="foto" class="my-class" /></div>
-			<div><Image src={musik4} format="webp" alt="foto" class="my-class" /></div>
-		</section>
+  <a href="#competencies" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center justify-center cursor-pointer lg:pt-8 z-50">
+    <div class="w-12 h-12 flex items-center justify-center border-2 border-black rounded-full hover-button animate__animated animate__fadeInUp">
+      <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </div>
+  </a>
 
-		<section class="mt-32">
-			<h2 class="text-4xl font-bold">Kursisterne siger</h2>
-			<div class="grid grid-cols-1 lg:grid-cols-3 mx-auto gap-4">
-				<article class="prose mb-6">
-					<span class="font-bold">Godt</span>
-					<p>Jørns kursus er sjovt, og kursisterne bliver forkælet med kaffe og avec i pauserne. Jeg kunne ikke forlange mere (bort set fra lidt wienerbrød)</p>
-					<p class="italic">Sanne Tovgaard, Proletikken</p>
-				</article>
-				<article class="prose mb-6">
-					<span class="font-bold">Jeg gik glad hjem</span>
-					<p>Oplæggende er underholdende, og der er masser af sjove historier om små, snedige tricks man kan bruge til at lokke penge ud af folk. Hvad mere skal man sige om et kursus?</p>
-					<p class="italic">Kim Broggaard, muzaktilmasserne.dk</p>
-				</article>
-				<article  class="prose mb-6">
-					<span class="font-bold">Sjove anekdoter</span>
-					<p>Jørn kan det der - og han bliver bedre og bedre. Klart det bedste af Jørns kurser - De tre første var også lidt sløve, men her... Han viser han mestrer forførelsesns kunst” Tillykke - godt arbejde.</p>
-					<p class="italic">Folmer Bro, folmerbrorocks.dk</p>
-				</article>
-			</div>
-		</section>
+  <section id="competencies" class="p-8 w-full pl-48 pb-44 max-w-screen-xl mx-auto px-8 xl:px-16">
+    <h2 class="text-8xl pb-6">COMPETENCIES</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-60">
+      <div class="lg:col-span-2 flex flex-col md:flex-row gap-8 lg:order-2">
+        <div class="skills-box text-l flex-1 pr-5">
+          <h3 class="text-xl font-semibold mb-4">TECHNICAL COMPETENCIES</h3>
+          <p class="text-l pb-8">I use Figma and Adobe tools with HTML, CSS, and JavaScript to turn design ideas into responsive, interactive websites. This blend of skills helps me create engaging, functional web experiences.</p>
 
-		<section class="mt-32" id="kursusgange">
-			<h2 class="text-4xl font-bold">Kursusgange</h2>
-			<div class="grid grid-cols-1 lg:grid-cols-2 mx-auto mt-4 gap-8">
-				<article class="prose">
-					<h3 class="text-xl">Kursusgang 1 - Alle kan tjene på musik</h3>
-					<p>Selvom du synger og spiller dårligt, kan du sagtens tjene penge på musik. Tænk bare på DJ Alligator - han griner stadig hele vejen til banken. </p>
-				</article>
-				<article class="prose">
-					<h3 class="text-xl">Kapitel 2 - Spil live og tjen penge</h3>
-					<p>Koncerter er en vaskeægte pengemaskine. Udnyt det til fulde med gode kontrakter - og pas på at spillestederne ikke tager røven på dig.</p>
-				</article>
-				<article class="prose">
-					<h3 class="text-xl">Kapitel 3 - Merchandisemaskineriet</h3>
-					<p>Lær at sælge t-shirts og andet unødvendigt merchandise med stor profit. Pengene sidder løst på fulde koncertgæster - det er som at stjæle slik fra børn.</p>
-				</article>
-				<article class="prose">
-					<h3 class="text-xl">Kapitel 4 - Svindel og humbug</h3>
-					<p>Sidste kursusgang handler om små tricks: Spil på gaden (busking), snyd med selvangivelsen, udnyttelse af venner og familie samt eventuelt bedrageri af forretningsforbindelser - intet er for fint til at overleve i en stærkt presset musikbranche</p>
-				</article>		
-			</div>
-		</section>
+          <ul class="list-disc pl-5 grid grid-cols-2 gap-2">
+            <li>Figma</li>
+            <li>Adobe Photoshop</li>
+            <li>Adobe InDesign</li>
+            <li>Adobe Illustrator</li>
+            <li>Adobe Premiere Pro</li>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Microsoft Office</li>
+            <li>Responsive websites</li>
+          </ul>
+        </div>
+        <div class="design-box text-l flex-1 pl-24">
+          <h3 class="text-xl font-semibold mb-4">DESIGN COMPETENCIES</h3>
+          <p class="text-l pb-8 pr-7">I create wireframes, mockups, and responsive designs. My design competencies include research, UI patterns, usertesting, and developing styletiles and designsystems.</p>
+          <ul class="list-disc pl-5 grid grid-cols-2 gap-2">
+            <li>Design research</li>
+            <li>UI patterns research</li>
+            <li>User research</li>
+            <li>Usertesting</li>
+            <li>Wireframe & Mock Ups</li>
+            <li>Styletiles</li>
+            <li>Designsystems</li>
+            <li>Responsive design</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-		<section id="underviseren" class="grid lg:grid-cols-2 mt-32 max-w-3xl mx-auto gap-6"> 
-			<div>
-				<Image src={musik3} alt="Jørn henning" class="" />
-			</div>
-			<article class="prose">
-				<h2 class="text-4xl">Underviseren</h2>
-				<p>Jørn Henning har en lang musik-karriere bag sig. Det hele startede i 00’erne, da han gik rundt i Pisserenden med sin guitar. Senere fik han en række hits, blandt andet "Jeg har fået hikke" og "Ungdomsdruk"</p>
-				<p>Derefter tog karrieren fart: Han blev musiklærer og skrev en masse sange om dagligdagsstof, blandt andet hittet "På et møntvaskeri" og "Tutti Frutti i min fryser." </p>		
-			</article>
-		</section>
+  <section id="work" class="w-full px-8 xl:px-16 mx-auto max-w-screen-xl pt-16 pb-44 lg:pt-24">
+    <h2 class="text-8xl pb-44">WORK</h2>
+    <div class="space-y-12">
+      <!-- Text Block 1 -->
+      <div class="relative group">
+        <a href="link-to-your-page1.html" class="text-2xl font-medium block hover:underline"> GIRLTALK </a>
+        <div class="text-l">
+          <p>tekst</p>
+        </div>
+        <div class="border-b border-gray-300 pb-1"></div>
+        <div class="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-150 rotate-6">
+          <img src="public/mig.jpg" alt="Image 1" class="w-80 h-80 object-cover" />
+        </div>
+      </div>
 
-		<section id="inspiration" class="mt-32">
-			<h2 class="text-4xl font-bold">Inspiration fra tidligere kurser</h2>
-			<div class="columns-2 lg:columns-4">
-			{
-				images.map(({ src }) => (
-				<div class="">
-					<img
-						src={src}
-						class="mb-4"
-						alt=""
-						loading="lazy"
-					/>
-				</div>
-				))
-			}
-			</div>
-		</section>
-		<!-- tailwind form -->
-	<section  id="tilmelding" class="max-w-lg mx-auto mt-32 p-4">
-		<h2 class="text-4xl font-bold pb-4">Tilmeld dig</h2>
-		<form class="space-y-4 grid grid-cols-1 gap-6">
+      <!-- Text Block 2 -->
+      <div class="relative group">
+        <a href="https://startling-entremet-207b3c.netlify.app/" class="text-2xl font-medium block hover:underline" target="_blank" rel="noopener noreferrer"> DIGITAL CLEANUP DAY </a>
+        <div class="text-l">
+          <p>Tekst</p>
+        </div>
+        <div class="border-b border-gray-300 pb-1 mb-1"></div>
+        <div class="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-150 rotate-6">
+          <img src="public/mig.jpg" alt="Image 2" class="w-80 h-80 object-cover" />
+        </div>
+      </div>
 
-			<div class="">
-				<label for="kursusgang">Kursusgang:</label>					
-				<select name="kursusgang" id="kursusgang">
-					<option value="oktober">Oktober 2024</option>
-					<option value="december">December 2024</option>
-					<option value="februar">Februar 2025</option>
-				</select>
-			</div>
+      <!-- Text Block 3 -->
+      <div class="relative group">
+        <a href="link-to-your-page3.html" class="text-2xl font-medium block hover:underline">BALCOMBE</a>
+        <div class="text-l">
+          <p>tekst</p>
+        </div>
+        <div class="border-b border-gray-300 pb-1 mb-1"></div>
+        <div class="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-150 rotate-6">
+          <img src="public/mig.jpg" alt="Image 3" class="w-80 h-80 object-cover" />
+        </div>
+      </div>
 
-			<div class="">
-				<span>Betaling:</span>
-				<input type="radio" id="forud" name="levering" checked="checked">
-				<label for="forud">Forudbetaling</label>
-				<input type="radio" id="kredit" name="levering">
-				<label for="kredit">Kredit</label>
-				<input type="radio" id="kontant" name="levering">
-				<label for="kontant">Kontant</label>
-				
-			</div>
-		
-			<div class="grid gap-3">
-				<label for="navn">Navn:</label>
-				<input type="text" id="navn" name="navn" placeholder="Anders And">
-			</div>
+      <!-- Text Block 4 -->
+      <div class="relative group">
+        <a href="link-to-your-page4.html" class="text-2xl font-medium block hover:underline">ANIMATION GAME</a>
+        <div class="text-l">
+          <p>tekst</p>
+        </div>
+        <div class="border-b border-gray-300 pb-1 mb-1"></div>
+        <div class="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-150 rotate-6">
+          <img src="public/mig.jpg" alt="Image 4" class="w-80 h-80 object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
 
-			<div class="grid gap-3">
-				<label for="adresse">Adresse:</label>
-				<input type="text" id="adresse" name="adresse" placeholder="Paradisæblevej 8">
-			</div>
+  <!-- SEKTION 4 - CONTACT -->
+  <section id="contact-section" class="relative overflow-hidden flex flex-col md:flex-row gap-8 pb-44 pt-16 pl-44">
+    <!-- Text Container -->
+    <div class="flex flex-col gap-4 text-center md:text-left">
+      <h2 class="text-8xl">CONTACT</h2>
+      <div class="max-w-xl">
+        <p class="text-l pb-4">I love being part of the <b>creative</b> process right from the beginning, where I can contribute ideas and turn them into effective solutions. I am <b>social</b>, dedicated, and approach tasks with enthusiasm. I thrive in team environments, contribute to a <b>positive</b> atmosphere, and take pride in seeing projects through to completion. <br /> <br />I would <b>love</b> to bring my skills and <b>energy</b> to your team. I can't wait to hear from you. Thanks you for your time!</p>
+      </div>
+      <p class="text-2xl font-semibold">Contact information:</p>
+      <p class="text-l">Mobile: +45 6043 8377</p>
+      <p class="text-l">E-mail: Mariara@live.dk</p>
+      <a href="https://www.linkedin.com/in/yourlinkedinprofile" target="_blank" class="text-l text-black hover:underline">LinkedIn</a>
+    </div>
 
-			<div class="grid gap-3 grid-cols-6">
-				<label for="postnummer" class="col-span-6">Postnummer & by:</label>
-				<input type="text" id="postnummer" name="postnummer" class="col-span-2" placeholder="0900">
-				<input type="text" id="bynavn" name="bynavn" disabled class="col-span-4" placeholder="Andeby C">
-			</div>
+    <!-- SVG Container -->
+    <div class="absolute w-[800px] h-[800px] overflow-hidden getintouchanimation">
+      <svg id="unique-svg" viewBox="0 0 800 800" class="w-full h-full">
+        <defs>
+          <path id="circle-path" d="M 400,400 m -300,0 a 300,300 0 1,1 600,0 a 300,300 0 1,1 -600,0"></path>
+        </defs>
+        <text>
+          <textPath href="#circle-path" startOffset="50%"> GET IN TOUCH • GET IN TOUCH • GET IN TOUCH •</textPath>
+        </text>
+      </svg>
+    </div>
+  </section>
 
-			<div class="grid gap-3">
-				<label for="telefon">Telefon:</label>
-				<input type="tel" id="telefon" name="telefon" placeholder="555-555">
-			</div>
+  <style>
+    .getintouchanimation {
+      bottom: -rem;
+      right: -12rem;
+    }
 
-			<div class="">
-				<input type="checkbox" id="nyhedsbrev" name="nyhedsbrev">
-				<label for="nyhedsbrev">Ja tak til nyhedsbreve og tilbud</label>
-			</div>
+    #unique-svg {
+      width: 100%;
+      height: 100%;
+      animation: rotate 30s linear infinite; /* Roterer SVG elementet */
 
-			<div class="flex justify-end">
-				<Button variant="primary" size="medium">Til betaling</Button>
-			</div>
-		</form>
-	</section>
-	<!-- tailwind form slut -->
+      z-index: 10;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    #unique-svg text {
+      font-size: 79px; /* Juster størrelsen af teksten som ønsket */
+      fill: #ed1539;
+      text-anchor: middle;
+    }
+
+    .card-container {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-container .initial-text,
+    .card-container .hover-text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center; /* Centrerer tekst vertikalt */
+      justify-content: center; /* Centrerer tekst horisontalt */
+      padding: 10px;
+      box-sizing: border-box;
+      transition:
+        opacity 0.3s ease,
+        background-color 0.3s ease;
+      z-index: 10;
+    }
+
+    .card-container .initial-text {
+      background-color: transparent;
+      opacity: 1;
+    }
+
+    .card-container .hover-text {
+      background-color: lightgray;
+      opacity: 0;
+      align-items: flex-start; /* Starter teksten fra toppen ved hover */
+      padding-top: 10px; /* Tilføj eventuelt lidt top-padding for plads */
+      z-index: 20;
+    }
+
+    .card-container:hover .initial-text {
+      opacity: 0;
+    }
+
+    .card-container:hover .hover-text {
+      opacity: 1;
+    }
+  </style>
+
+  <script>
+    document.querySelector('a[href="#competencies"]').addEventListener("click", function (e) {
+      e.preventDefault();
+      document.querySelector("#competencies").scrollIntoView({ behavior: "smooth" });
+    });
+
+    document.querySelectorAll(".text-block").forEach((block) => {
+      block.addEventListener("click", function () {
+        const imageUrl = this.getAttribute("data-image");
+        document.getElementById("popup-image").src = imageUrl;
+        document.getElementById("image-popup").classList.remove("hidden");
+      });
+    });
+
+    document.getElementById("image-popup").addEventListener("click", function () {
+      this.classList.add("hidden");
+    });
+  </script>
 </MainLayout>
