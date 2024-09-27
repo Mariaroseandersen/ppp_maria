@@ -18,6 +18,9 @@ export default {
         250: "2.5", // Skala 250%
         300: "3", // Skala 300%
       },
+      width: {
+        96: "24rem", // Eksempel på en bredde der kan være større end w-80
+      },
     },
   },
   plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms"), require("@tailwindcss/aspect-ratio"), require("@tailwindcss/container-queries")],
