@@ -8,25 +8,22 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then((files) => 
 
 <MainLayout title="Titel">
   <!-- HERO SEKTION -->
-  <section id="hero" class="grid md:grid-cols-1 lg:grid-cols-2 relative max-w-screen-xl mx-auto px-8 xl:px-16 lg:pt-24">
-    <!-- På mobil vises dette under billedet -->
+  <section id="hero" class="grid md:grid-cols-1 lg:grid-cols-2 relative max-w-screen-xl mx-auto px-8 xl:px-16 pl-16">
     <div class="order-2 md:order-1 pb-48 lg:pb-20 relative z-10 flex flex-col justify-center">
-      <p class="text-black text-8xl md:text-8xl lg:text-7xl mb-4 animate__animated animate__fadeInLeftBig whitespace-nowrap">Creative Digital Designer</p>
-      <div class="text-black md:text-base animate__animated animate__fadeInLeftBig whitespace-nowrap max-w-md">
-        <p class="text-3xl pb-4 font-medium">Hi, my name is Maria, but feel free to call me Rose.</p>
-        <p class="pt-4 pb-8 text-l">
-          I am currently in my third semester at KEA, which particularly focuses on <br /> digital design, UI, and UX. I am passionate about turning creative ideas <br />into engaging solutions with Figma, Adobe tools, and web technologies.
-        </p>
+      <p class="text-black pt-7 text-7xl md:text-8xl lg:text-7xl animate__animated animate__fadeInLeftBig whitespace-nowrap">Creative Digital Designer</p>
+      <div class="text-black md:text-base animate__animated animate__fadeInLeftBig pt-5 pl-2">
+        <p class="text-4xl text-bold md:text-3xl pb-4 font-medium whitespace-nowrap">Hi, my name is Maria, but feel free to call me Rose.</p>
+        <p class="pt-4 pb-8 text-3xl md:text-lg lg:text-base md:px-4 lg:px-0">I am currently in my third semester at KEA, which particularly focuses on digital design, UI, and UX. I am passionate about turning creative ideas into engaging solutions with Figma, Adobe tools, and web technologies.</p>
       </div>
-      <a href="#competencies" class="animate__animated animate__fadeInLeftBig" style="transition: transform 0.3s ease; display: inline-block; border: 2px solid black; text-align: center; padding: 8px 16px; border-radius: 4px; color: black; max-width: 250px; overflow: hidden; text-overflow: ellipsis;" onmouseover="this.style.transform='scale(1.1)';" onmouseout="this.style.transform='scale(1)';"> EXPLORE MY COMPETENCIES </a>
+      <a href="#competencies" class="animate__animated animate__fadeInLeftBig transition-transform duration-300 ease-in-out inline-block border-2 border-black text-black text-2xl md:text-base lg:text-base px-8 py-3 rounded-md max-w-xs text-center"> EXPLORE MY COMPETENCIES </a>
     </div>
-    <!-- På mobil vises billedet først -->
-    <div class="order-1 md:order-2 relative overflow-hidden pb-44">
-      <img src="public/mig_kort.jpg" alt="Billede af Maria Rose Andersen" class="object-cover h-[300px] md:h-full w-full lg:w-full animate__animated animate__fadeInRightBig rounded-xl pb-11" />
+    <div class="order-1 md:order-2 relative overflow-hidden lg:pb-44 lg:pt-20">
+      <img src="/mig_kort.jpg" alt="Billede af Maria Rose Andersen" class="object-cover h-full w-full animate__animated animate__fadeInRightBig rounded-xl pt-20" />
     </div>
   </section>
 
-  <a href="#competencies" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center justify-center cursor-pointer lg:pt-8 z-50">
+  <!-- Knappen til at navigere til competencies -->
+  <a href="#competencies" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center justify-center cursor-pointer z-50 hidden md:flex">
     <div class="w-12 h-12 flex items-center justify-center border-2 border-black rounded-full hover-button animate__animated animate__fadeInUp">
       <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -34,7 +31,7 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then((files) => 
     </div>
   </a>
 
-  <section id="competencies" class="p-8 w-full pl-48 pb-44 max-w-screen-xl mx-auto px-8 xl:px-16">
+  <section id="competencies" class="p-1 lg:p-8 w-full pl-48 pb-44 max-w-screen-xl mx-auto px-8 xl:px-16">
     <h2 class="text-8xl pb-6">COMPETENCIES</h2>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-60">
       <div class="lg:col-span-2 flex flex-col md:flex-row gap-8 lg:order-2">
@@ -226,9 +223,40 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then((files) => 
   </style>
 
   <script>
-    document.querySelector('a[href="#competencies"]').addEventListener("click", function (e) {
-      e.preventDefault();
-      document.querySelector("#competencies").scrollIntoView({ behavior: "smooth" });
+    // document.querySelector('a[href="#competencies"]').addEventListener("click", function (e) {
+    //   e.preventDefault();
+    //   document.querySelector("#competencies").scrollIntoView({ behavior: "smooth" });
+    // });
+
+    // Få elementerne
+    const competenciesButton = document.getElementById("competenciesButton");
+    const workButton = document.getElementById("workButton");
+
+    // Når man scroller, kontrollerer vi, om man er i competencies sektionen
+    window.addEventListener("scroll", () => {
+      const competenciesSection = document.getElementById("competencies");
+      const competenciesRect = competenciesSection.getBoundingClientRect();
+
+      // Tjek om competencies sektionen er synlig
+      if (competenciesRect.top >= 0 && competenciesRect.bottom <= window.innerHeight) {
+        // Hvis ja, vis work knappen
+        workButton.classList.remove("hidden");
+      } else {
+        // Hvis ikke, skjul work knappen
+        workButton.classList.add("hidden");
+      }
+    });
+
+    // Scroll til competencies sektionen ved klik
+    competenciesButton.addEventListener("click", (event) => {
+      event.preventDefault(); // Forhindrer standard linkadfærd
+      document.getElementById("competencies").scrollIntoView({ behavior: "smooth" });
+    });
+
+    // Scroll til work sektionen ved klik
+    workButton.addEventListener("click", (event) => {
+      event.preventDefault(); // Forhindrer standard linkadfærd
+      document.getElementById("work").scrollIntoView({ behavior: "smooth" });
     });
 
     document.querySelectorAll(".text-block").forEach((block) => {

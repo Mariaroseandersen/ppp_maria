@@ -6,10 +6,6 @@ export default {
       fontFamily: {
         sans: ["Helvetica", "Arial", "sans-serif"], // Tilføjer Helvetica her
       },
-      colors: {
-        "light-coral": "#f8b195", // Lys koralfarve
-        "peach-puff": "#fcefe3", // Lys ferskenfarve
-      },
       backgroundImage: {
         "gradient-light-coral": "linear-gradient(to right, #f8b195, #fcefe3)",
       },
