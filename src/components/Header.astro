@@ -3,18 +3,17 @@ import Link from "../components/Link.astro";
 import Link from "../components/Link.astro";
 ---
 
-<div x-data="{ showmenu: false }" class="p-14 lg:p-10 fixed w-full">
+<div x-data="{ showmenu: false }" class="fixed static w-full lg:pt-11 lg:px-14">
   <div id="navbar" class="flex flex-row justify-between">
-    <div id="logo" class="text-3xl mt-10 mb-10 lg:text-2xl lg:mt-0">
+    <div id="logo" class="text-3xl lg:text-2xl">
       <a href="/">MARIA ROSE - Digital Designer</a>
     </div>
-
     <nav id="desktopmenu" class="hidden lg:block">
-      <ul class="flex flex-row gap-6 text-sm">
-        <li><Link href="/">ABOUT</Link></li>
-        <li><Link href="#competencies">COMPETENCIES</Link></li>
-        <li><Link href="#work">WORK</Link></li>
-        <li><Link href="#contact-section">CONTACT</Link></li>
+      <ul class="flex flex-row gap-6 text-xl">
+        <li><a href="/"></a>ABOUT</li>
+        <li><a href="#competencies">COMPETENCIES</a></li>
+        <li><a href="#work">WORK</a></li>
+        <li><a href="#contact-section">CONTACT</a></li>
       </ul>
     </nav>
     <button id="burgermenu" class="lg:hidden flex flex-col justify-center items-center w-10 h-10 z-50 pr-10 mt-10" x-on:click="showmenu = !showmenu">
