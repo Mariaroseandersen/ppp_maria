@@ -3,33 +3,40 @@ import Link from "../components/Link.astro";
 import Link from "../components/Link.astro";
 ---
 
-<div x-data="{ showmenu: false }" class="fixed static w-full lg:pt-11 lg:px-14">
-  <div id="navbar" class="flex flex-row justify-between">
-    <div id="logo" class="text-3xl lg:text-2xl">
+<div x-data="{ showmenu: false }" class="p-4 fixed lg:static w-full lg:px-8 lg:pt-10 bg-white z-50">
+  <div id="navbar" class="flex flex-row justify-between items-center lg:text-xl">
+    <div id="logo ">
       <a href="/">MARIA ROSE - Digital Designer</a>
     </div>
     <nav id="desktopmenu" class="hidden lg:block">
-      <ul class="flex flex-row gap-6 text-xl">
-        <li><a href="/"></a>ABOUT</li>
-        <li><a href="#competencies">COMPETENCIES</a></li>
-        <li><a href="#work">WORK</a></li>
-        <li><a href="#contact-section">CONTACT</a></li>
+      <ul class="flex flex-row gap-6">
+        <a href="/">ABOUT</a>
+        <a href="#competencies">COMPETENCIES</a>
+        <a href="#work">WORK</a>
+        <a href="#contact-section">CONTACT</a>
       </ul>
     </nav>
-    <button id="burgermenu" class="lg:hidden flex flex-col justify-center items-center w-10 h-10 z-50 pr-10 mt-10" x-on:click="showmenu = !showmenu">
-      <!-- Show burger lines if menu is closed -->
-      <span :class="{ 'rotate-45 translate-y-2': showmenu }" class="block w-20 h-0.5 bg-black mb-2 transition-all duration-300"></span>
-      <span :class="{ 'opacity-0': showmenu }" class="block w-20 h-0.5 bg-black mb-2 transition-all duration-300"></span>
-      <span :class="{ '-rotate-45 -translate-y-2': showmenu }" class="block w-20 h-0.5 bg-black transition-all duration-300"></span>
+    <!-- Burger Menu Button (visible on mobile) -->
+    <button id="burgermenu" class="lg:hidden flex flex-col justify-center items-center z-50 fixed top-4 right-4" x-on:click="showmenu = ! showmenu">
+      <!-- Burger Icon (3 lines that turn into a cross) -->
+      <span :class="{ 'rotate-45 translate-y-2': showmenu }" class="block w-8 h-0.5 bg-black mb-2 transition-all duration-300"></span>
+      <span :class="{ 'opacity-0': showmenu }" class="block w-8 h-0.5 bg-black mb-2 transition-all duration-300"></span>
+      <span :class="{ '-rotate-45 -translate-y-2': showmenu }" class="block w-8 h-0.5 bg-black transition-all duration-300"></span>
     </button>
   </div>
-  <nav id="mobilmenu" class="flex flex-col content-center lg:pt-0" x-show="showmenu" x-transition x-on:click="showmenu = false" x-on:click.outside="showmenu = false">
-    <ul class="">
-      <!-- Tilføj padding her -->
-      <li class="text-center py-2 border-y-2"><Link href="/">ABOUT</Link></li>
-      <li class="text-center py-2 border-b-2"><Link href="#competencies">COMPETENCIES</Link></li>
-      <li class="text-center py-2 border-b-2"><Link href="#work">WORK</Link></li>
-      <li class="text-center py-2 border-b-2"><Link href="#contact-section">CONTACT</Link></li>
+
+  <!-- Mobile Menu (only visible on mobile screens) -->
+  <nav id="mobilmenu" class="fixed inset-0 bg-white flex flex-col justify-center items-center z-40 transform transition-transform duration-300 lg:hidden" x-show="showmenu" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="translate-y-full" x-transition:enter-end="translate-y-0" x-transition:leave="transition ease-in duration-300 transform" x-transition:leave-start="translate-y-0" x-transition:leave-end="translate-y-full" x-cloak>
+    <!-- Logo inside the mobile menu -->
+    <div class="absolute top-4 left-4">
+      <a href="/" class="text-xl">MARIA ROSE</a>
+    </div>
+    <!-- Menu items -->
+    <ul class="text-center mt-16">
+      <li class="text-2xl py-4"><Link href="/">ABOUT</Link></li>
+      <li class="text-2xl py-4"><Link href="#competencies">COMPETENCIES</Link></li>
+      <li class="text-2xl py-4"><Link href="#work">WORK</Link></li>
+      <li class="text-2xl py-4"><Link href="#contact-section">CONTACT</Link></li>
     </ul>
   </nav>
 </div>

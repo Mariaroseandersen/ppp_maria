@@ -8,22 +8,25 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then((files) => 
 
 <MainLayout title="Titel">
   <!-- HERO SEKTION -->
-  <section id="hero" class="grid md:grid-cols-1 lg:grid-cols-2 relative max-w-screen-xl mx-auto px-8 xl:px-16 pl-16">
-    <div class="order-2 md:order-1 pb-48 lg:pb-20 relative z-10 flex flex-col justify-center">
-      <p class="text-black pt-7 text-7xl md:text-8xl lg:text-7xl animate__animated animate__fadeInLeftBig whitespace-nowrap">Creative Digital Designer</p>
-      <div class="text-black md:text-base animate__animated animate__fadeInLeftBig pt-5 pl-2">
-        <p class="text-4xl text-bold md:text-3xl pb-4 font-medium whitespace-nowrap">Hi, my name is Maria, but feel free to call me Rose.</p>
-        <p class="pt-4 pb-8 text-3xl md:text-lg lg:text-base md:px-4 lg:px-0">I am currently in my third semester at KEA, which particularly focuses on digital design, UI, and UX. I am passionate about turning creative ideas into engaging solutions with Figma, Adobe tools, and web technologies.</p>
+  <section id="hero" class="grid grid-cols-1 lg:grid-cols-2 lg:relative w-full max-w-screen-xl lg:mx-auto lg:pt-14 lg:px-16 lg:pb-48 sm:pb-14">
+    <div class="order-2 md:order-1 pb-16 relative lg:z-10 flex flex-col justify-center">
+      <h1 class="text-black text-5xl pl-4 md:pl-0 lg:text-5xl animate__animated animate__fadeInLeftBig lg:whitespace-nowrap">CREATIVE DIGITAL DESIGNER</h1>
+      <div class="text-black pl-4 md:pl-0 md:text-base animate__animated animate__fadeInLeftBig pt-4">
+        <p class="text-xl font-medium md:text-3xl lg:whitespace-nowrap">Hi, my name is Maria, but feel free to call me Rose.</p>
+        <p class="pt-4 pb-6 text-lg md:text-lg lg:text-base">I am currently in my third semester at KEA, which particularly focuses on digital design, UI, and UX. I am passionate about turning creative ideas into engaging solutions with Figma, Adobe tools, and web technologies.</p>
       </div>
-      <a href="#competencies" class="animate__animated animate__fadeInLeftBig transition-transform duration-300 ease-in-out inline-block border-2 border-black text-black text-2xl md:text-base lg:text-base px-8 py-3 rounded-md max-w-xs text-center"> EXPLORE MY COMPETENCIES </a>
+      <!-- Added flex and justify-center for mobile centering -->
+      <div class="flex pl-4 md:pl-0 md:justify-start mt-4 md:mt-0">
+        <a href="#competencies" class="animate__animated animate__fadeInLeftBig transition-transform duration-300 ease-in-out inline-block border-2 border-black text-black text-lg md:text-base px-6 py-2 rounded-md max-w-xs text-center">EXPLORE MY COMPETENCIES</a>
+      </div>
     </div>
-    <div class="order-1 md:order-2 relative overflow-hidden lg:pb-44 lg:pt-20">
-      <img src="/mig_kort.jpg" alt="Billede af Maria Rose Andersen" class="object-cover h-full w-full animate__animated animate__fadeInRightBig rounded-xl pt-20" />
+    <div class="order-1 md:order-2 relative overflow-hidden pb-6">
+      <img src="/mig_kort.jpg" alt="Billede af Maria Rose Andersen" class="object-cover h-full w-full animate__animated animate__fadeInRightBig rounded-xl" />
     </div>
   </section>
 
   <!-- Knappen til at navigere til competencies -->
-  <a href="#competencies" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center justify-center cursor-pointer z-50 hidden md:flex">
+  <a href="#competencies" class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex items-center justify-center cursor-pointer z-50 hidden md:flex pl-4 md:pl-0">
     <div class="w-12 h-12 flex items-center justify-center border-2 border-black rounded-full hover-button animate__animated animate__fadeInUp">
       <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -31,112 +34,112 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then((files) => 
     </div>
   </a>
 
-  <section id="competencies" class="p-1 lg:p-8 w-full pl-48 pb-44 max-w-screen-xl mx-auto px-8 xl:px-16">
-    <h2 class="text-8xl pb-6">COMPETENCIES</h2>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-60">
+  <section id="competencies" class="pt-28 lg:p-8 w-full lg:pb-44 max-w-screen-xl mx-auto xl:px-16">
+    <h2 class="text-5xl lg:text-8xl pl-4 md:pl-0">COMPETENCIES</h2>
+    <div class="grid grid-cols-1 gap-8 pt-8 lg:pt-72 lg:grid-cols-2">
       <div class="lg:col-span-2 flex flex-col md:flex-row gap-8 lg:order-2">
-        <div class="skills-box text-l flex-1 pr-5">
-          <h3 class="text-xl font-semibold mb-4">TECHNICAL COMPETENCIES</h3>
-          <p class="text-l pb-8">I use Figma and Adobe tools with HTML, CSS, and JavaScript to turn design ideas into responsive, interactive websites. This blend of skills helps me create engaging, functional web experiences.</p>
-
-          <ul class="list-disc pl-5 grid grid-cols-2 gap-2">
-            <li>Figma</li>
-            <li>Adobe Photoshop</li>
-            <li>Adobe InDesign</li>
-            <li>Adobe Illustrator</li>
-            <li>Adobe Premiere Pro</li>
-            <li>HTML, CSS, JavaScript</li>
-            <li>Microsoft Office</li>
-            <li>Responsive websites</li>
+        <div class="skills-box text-l flex-1">
+          <h3 class="text-xl font-semibold mb-4 pl-4 md:pl-0">TECHNICAL COMPETENCIES</h3>
+          <p class="text-lg md:text-lg lg:text-base pb-4 lg:pr-10 pl-4 md:pl-0 mb-2">I use Figma and Adobe tools with HTML, CSS, and JavaScript to turn design ideas into responsive and interactive websites. This blend of skills helps me create engaging and functional web experiences.</p>
+          <ul class="list-disc pl-4 md:pl-8 lg:pl-4 lg:grid grid-cols-2 gap-2 text-lg md:text-lg lg:text-base mb-4 ml-4 lg:ml-0">
+            <li class="pl-4">Figma</li>
+            <li class="pl-4">Adobe Photoshop</li>
+            <li class="pl-4">Adobe InDesign</li>
+            <li class="pl-4">Adobe Illustrator</li>
+            <li class="pl-4">Adobe Premiere Pro</li>
+            <li class="pl-4">HTML, CSS, JavaScript</li>
+            <li class="pl-4">Microsoft Office</li>
+            <li class="pl-4">Responsive websites</li>
           </ul>
         </div>
-        <div class="design-box text-l flex-1 pl-24">
-          <h3 class="text-xl font-semibold mb-4">DESIGN COMPETENCIES</h3>
-          <p class="text-l pb-8 pr-7">I create wireframes, mockups, and responsive designs. My design competencies include research, UI patterns, usertesting, and developing styletiles and designsystems.</p>
-          <ul class="list-disc pl-5 grid grid-cols-2 gap-2">
-            <li>Design research</li>
-            <li>UI patterns research</li>
-            <li>User research</li>
-            <li>Usertesting</li>
-            <li>Wireframe & Mock Ups</li>
-            <li>Styletiles</li>
-            <li>Designsystems</li>
-            <li>Responsive design</li>
+        <div class="design-box text-l flex-1">
+          <h3 class="text-xl font-semibold mb-4 pl-4 md:pl-0">DESIGN COMPETENCIES</h3>
+          <p class="text-lg md:text-lg lg:text-base pb-4 lg:pr-10 pl-4 md:pl-0 mb-2">I create wireframes, mockups, and responsive designs. My design competencies include research, UI patterns, user testing, …developing style tiles and design systems.</p>
+          <ul class="list-disc pl-4 md:pl-8 lg:pl-4 lg:grid grid-cols-2 gap-2 text-lg md:text-lg lg:text-base mb-4 ml-4 lg:ml-0">
+            <li class="pl-4">Design research</li>
+            <li class="pl-4">UI patterns research</li>
+            <li class="pl-4">User research</li>
+            <li class="pl-4">User testing</li>
+            <li class="pl-4">Wireframe & Mock Ups</li>
+            <li class="pl-4">Style tiles</li>
+            <li class="pl-4">Design systems</li>
+            <li class="pl-4">Responsive design</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="work" class="w-full px-8 xl:px-16 mx-auto max-w-screen-xl pt-16 pb-44 lg:pt-24">
-    <h2 class="text-8xl pb-44">WORK</h2>
-    <div class="space-y-12">
+  <section id="work" class="pt-40 relative w-full overflow-hidden flex flex-col gap-8 pb-40 lg:pt-24 lg:px-44">
+    <h2 class="text-5xl lg:text-8xl pl-4 md:pl-0">WORK</h2>
+    <div class="space-y-10 flex flex-col px-4 md:pl-0">
       <!-- Text Block 1 -->
-      <div class="relative group">
-        <a href="link-to-your-page1.html" class="text-2xl font-medium block hover:underline">GIRLTALK</a>
+      <div class="relative group lg:pt-44">
+        <a href="https://girltalkgruppe10.netlify.app/" class="text-2xl font-medium block hover:underline" target="_blank" rel="noopener noreferrer">GIRLTALK</a>
         <div class="text-l">
-          <p>tekst</p>
+          Website & SoMe video. Click <a href="https://youtu.be/AgPcF7AC2gM" target="_blank" rel="noopener noreferrer" class="font-bold hover:underline">here</a> to watch video.
         </div>
-        <div class="border-b border-gray-300 pb-1"></div>
-        <div class="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-150 rotate-6">
-          <img src="public/mig.jpg" alt="Image 1" class="w-80 h-80 object-cover" />
+        <div class="border-b border-gray-300"></div>
+        <div class="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-150 rotate-6">
+          <img src="girltalk.png" alt="Image 2" class="w-auto h-60 object-cover" />
         </div>
       </div>
 
       <!-- Text Block 2 -->
-      <div class="relative group">
+      <div class="relative group mb-10">
         <a href="https://startling-entremet-207b3c.netlify.app/" class="text-2xl font-medium block hover:underline" target="_blank" rel="noopener noreferrer">DIGITAL CLEANUP DAY</a>
         <div class="text-l">
-          <p>Tekst</p>
+          <p>Website</p>
         </div>
-        <div class="border-b border-gray-300 pb-1 mb-1"></div>
-        <div class="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-150 rotate-6">
-          <img src="digital_cleanup_day.png" alt="Image 2" class="w-auto h-80 object-cover" />
+        <div class="border-b border-gray-300"></div>
+        <div class="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-150 rotate-6">
+          <img src="digital_cleanup_day.png" alt="Image 2" class="w-auto h-60 object-cover" />
         </div>
       </div>
 
       <!-- Text Block 3 -->
-      <div class="relative group">
-        <a href="link-to-your-page3.html" class="text-2xl font-medium block hover:underline">BALCOMBE</a>
+      <div class="relative group mb-10">
+        <a href="https://master--balcombe.netlify.app/" class="text-2xl font-medium block hover:underline" target="_blank" rel="noopener noreferrer">BALCOMBE</a>
         <div class="text-l">
-          <p>tekst</p>
+          Website & SoMe video. Click <a href="https://www.youtube.com/shorts/LqKfjWwMJfg" target="_blank" rel="noopener noreferrer" class="font-bold hover:underline">here</a> to watch video.
         </div>
-        <div class="border-b border-gray-300 pb-1 mb-1"></div>
-        <div class="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-150 rotate-6">
-          <img src="public/mig.jpg" alt="Image 3" class="w-80 h-80 object-cover" />
+        <div class="border-b border-gray-300"></div>
+        <div class="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-150 rotate-6">
+          <img src="balcombe.png" alt="Image 2" class="w-auto h-60 object-cover" />
         </div>
       </div>
 
       <!-- Text Block 4 -->
-      <div class="relative group">
-        <a href="link-to-your-page4.html" class="text-2xl font-medium block hover:underline">ANIMATION GAME</a>
+      <div class="relative group mb-10">
+        <a href="https://66fa64f4dfa7ac17f77c951f--imaginative-bunny-afb056.netlify.app/" class="text-2xl font-medium block hover:underline" target="_blank" rel="noopener noreferrer">ANIMATION GAME</a>
         <div class="text-l">
-          <p>tekst</p>
+          <p>Website: Animation game</p>
         </div>
-        <div class="border-b border-gray-300 pb-1 mb-1"></div>
-        <div class="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-150 rotate-6">
-          <img src="public/mig.jpg" alt="Image 4" class="w-80 h-80 object-cover" />
+        <div class="border-b border-gray-300"></div>
+        <div class="absolute top-1/3 right-0 transform -translate-y-1/2 translate-x-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-150 rotate-6">
+          <!-- Changed top-1/2 to top-1/3 -->
+          <img src="animation_game.png" alt="Image 2" class="w-auto h-60 object-cover" />
         </div>
       </div>
     </div>
   </section>
 
   <!-- SEKTION 4 - CONTACT -->
-  <section id="contact-section" class="relative overflow-hidden flex flex-col md:flex-row gap-8 pb-44 pt-16 pl-44">
+  <section id="contact-section" class="relative w-full overflow-hidden flex flex-col md:flex-row gap-8 pb-44 pt-10 lg:pl-44 lg:pt-44">
     <!-- Text Container -->
-    <div class="flex flex-col gap-4 text-center md:text-left">
-      <h2 class="text-8xl">CONTACT</h2>
+    <div class="flex flex-col gap-4 text-left md:text-left px-4 md:pl-0">
+      <h2 class="text-5xl lg:text-8xl">CONTACT</h2>
       <div class="max-w-xl">
-        <p class="text-l pb-4">I love being part of the <b>creative</b> process right from the beginning, where I can contribute ideas and turn them into effective solutions. I am <b>social</b>, dedicated, and approach tasks with enthusiasm. I thrive in team environments, contribute to a <b>positive</b> atmosphere, and take pride in seeing projects through to completion. <br /> <br />I would <b>love</b> to bring my skills and <b>energy</b> to your team. I can't wait to hear from you. Thanks you for your time!</p>
+        <p class="text-lg md:text-lg lg:text-base pb-4">I love being part of the <b>creative</b> process right from the beginning, where I can contribute ideas and turn them into effective solutions. I am <b>social</b>, dedicated, and approach tasks with enthusiasm. I thrive in team environments, contribute to a <b>positive</b> atmosphere, and take pride in seeing projects through to completion. <br /> <br />I would <b>love</b> to bring my skills and <b>energy</b> to your team. I can't wait to hear from you. Thank you for your time!</p>
       </div>
       <p class="text-2xl font-semibold">Contact information:</p>
-      <p class="text-l">Mobile: +45 6043 8377</p>
-      <p class="text-l">E-mail: Mariara@live.dk</p>
-      <a href="https://www.linkedin.com/in/yourlinkedinprofile" target="_blank" class="text-l text-black hover:underline">LinkedIn</a>
+      <p class="text-lg">Mobile: <a href="tel:+4560438377" class="text-black no-underline hover:text-gray-700 hover:underline">+45 6043 8377</a></p>
+      <p class="text-lg">E-mail: <a href="mailto:Mariara@live.dk" class="text-black no-underline hover:text-gray-700 hover:underline">Mariara@live.dk</a></p>
+      <a href="https://www.linkedin.com/in/maria-rose-andersen/" target="_blank" class="text-lg text-black hover:underline">LinkedIn</a>
     </div>
 
     <!-- SVG Container -->
-    <div class="absolute w-[800px] h-[800px] overflow-hidden getintouchanimation">
+    <div class="absolute w-[800px] h-[800px] overflow-hidden getintouchanimation hidden md:block">
       <svg id="unique-svg" viewBox="0 0 800 800" class="w-full h-full">
         <defs>
           <path id="circle-path" d="M 400,400 m -300,0 a 300,300 0 1,1 600,0 a 300,300 0 1,1 -600,0"></path>
